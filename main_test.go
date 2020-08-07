@@ -4,24 +4,23 @@ import (
 	"net/http"
 	"testing"
 
-	"gopkg.in/gavv/httpexpect.v1"
+	httpexpect "gopkg.in/gavv/httpexpect.v1"
 )
 
-func TestPutDrivers(t *testing.T) {
+func TestPutEntities(t *testing.T) {
 	e := fastHTTPTester(t)
 
-	PutDriversNormalCases(t, e)
+	StoreNormalCases(t, e)
 }
 
-func PutDriversNormalCases(t *testing.T, e *httpexpect.Expect) {
+func StoreNormalCases(t *testing.T, e *httpexpect.Expect) {
 
 	jsonbody := map[string]interface{}{
 		userLatitudeKey:  12.97161923,
 		userLongitudeKey: 77.59463452,
-		userAccuracyKey:  accuracyMinimum,
 	}
 
-	e.PUT("/drivers/12/location").
+	e.PUT("/entity/12/location").
 		WithJSON(jsonbody).
 		Expect().
 		Status(http.StatusOK).Body().Equal(emptyBody)
@@ -29,10 +28,9 @@ func PutDriversNormalCases(t *testing.T, e *httpexpect.Expect) {
 	jsonbody = map[string]interface{}{
 		userLatitudeKey:  80.97161923,
 		userLongitudeKey: 3.59463452,
-		userAccuracyKey:  accuracyMinimum,
 	}
 
-	e.PUT("/drivers/13/location").
+	e.PUT("/entity/13/location").
 		WithJSON(jsonbody).
 		Expect().
 		Status(http.StatusOK).Body().Equal(emptyBody)
@@ -40,10 +38,9 @@ func PutDriversNormalCases(t *testing.T, e *httpexpect.Expect) {
 	jsonbody = map[string]interface{}{
 		userLatitudeKey:  55.0,
 		userLongitudeKey: 147.0,
-		userAccuracyKey:  accuracyMinimum,
 	}
 
-	e.PUT("/drivers/151/location").
+	e.PUT("/entity/151/location").
 		WithJSON(jsonbody).
 		Expect().
 		Status(http.StatusOK).Body().Equal(emptyBody)
