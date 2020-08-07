@@ -1,0 +1,8 @@
+2020/08/08 01:05:00 Initialized Logging.
+2020/08/08 01:06:24 Initialized Logging.
+2020/08/08 01:12:42 Initialized Logging.
+2020/08/08 01:15:38 Initialized Logging.
+2020/08/08 01:16:50 Initialized Logging.
+2020/08/08 01:20:07 Initialized Logging.
+2020/08/08 01:20:07 Redis client connecting to: 0.0.0.0:6379
+2020/08/08 01:20:07 Listening at :8080
